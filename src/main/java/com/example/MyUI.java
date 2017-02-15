@@ -2,8 +2,8 @@ package com.example;
 
 import com.vaadin.annotations.JavaScript;
 import com.vaadin.server.VaadinRequest;
+import com.vaadin.ui.HorizontalLayout;
 import com.vaadin.ui.UI;
-import com.vaadin.ui.VerticalLayout;
 
 /**
  * @author Alejandro Duarte
@@ -13,9 +13,12 @@ public class MyUI extends UI {
 
     @Override
     protected void init(VaadinRequest vaadinRequest) {
-        GameCard card = new GameCard("♠", "k");
+        HorizontalLayout layout = new HorizontalLayout(
+                new GameCard("♠", "j"),
+                new GameCard("♥", "q"),
+                new GameCard("♣", "k"));
 
-        VerticalLayout layout = new VerticalLayout(card);
+        layout.setMargin(true);
         setContent(layout);
     }
 
